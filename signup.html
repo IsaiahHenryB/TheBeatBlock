@@ -28,48 +28,45 @@
             <button id="colorscheme"></button>
         </div>
     </div>
-
     <section class="content">
-
-        <h2>What's Up on the Block?</h2>
-
-        <section class="content-item">
-            <div>
-            <h3>What is The Beat Block?</h3>
-            <p>The term beat block is the moment of creative stagnancy that occurs when producers try to make new and interesting music. The Beat Block is a community for musical creatives to both find inspiration and inspire others. So the goal here is to STOP beat block AT BeatBlock.com.</p>
-            </div>
-            <div class="div-image" style="background-image: url(./public/Images/mixer.jpg);">
-            </div>
-        </section>
-
-        <section class="content-item">
-            <div>
-                <h3>Check It Out</h3>
-                <p>You can feel free to share your music here! Spread your creativity in any way shape or form you please. Feel encouraged to spread your musical ideas with our community.</p>
-                </div>
-            <div class="no-padding">
-                <iframe src="https://www.youtube.com/embed/XvI2WCO-Xac" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </section>
-
-        <section class="content-item">
-            <div>
-                <h3>Chat It Up</h3>
-                <p>Are you in a rut? Feel free to talk to many other musical creatives on this platform for their suggestions. At Beatblock.com, you can give and take advice about anyhing music. You can even just chat if you want!
-                </p>
-                </div>
-            <div class="div-image" style="background-image: url(./public/Images/Musics.jpg);"></div>
-        </section>
-
-        <section class="content-item">
-            <div>
-                <h3>No Music, No Problem</h3>
-                <p>You don't NEED to be someone who makes music to enjoy your experience here! We embrace everyone who has an interest in music so you don't need to feel obligated to have any experience. And if you want to learn how to make music, we have a community that encourages teaching and encouraging others in their musical journeys.</p>
-                </div>
-            <div class="div-image" style="background-image: url(./public/Images/instruments.jpg);"></div>
-        </section>
-    </section>
+<!-- Form Troubleshooting -->
+<div class="form-container">
+    <form action="update.html">
+        <h1>Sign Up</h1>
+        <div>
+            <label for="Name">Name: </label>
+            <input name="Name" placeholder="Name" type="text">
+        </div>
+        <div>
+            <label for="Email:">Email: </label>
+            <input name="Email" placeholder="Email" type="email">
+        </div>
+        <div>
+            <label for="Password:">Password: </label>
+            <input name="Password" placeholder="Password" type="password">
+        </div>
+        <div>
+            <label for="Occupation">Occupation/Hobby: </label>
+            <select name="Occupation" id="Occupation">
+                <option value="" disabled selected>Select Occupation</option>
+                <option value="Musician">Musician</option>
+                <option value="Producer">Producer</option>
+                <option value="Singer">Singer</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div>
+            <label for="Genre">Genre: </label>
+            <input name="Genre" placeholder="What's Your Genre of Preference?" type="text">
+        </div>
+        <div>
+            <label for="Description">Description: </label>
+            <textarea name="Description" placeholder="Tell Us About You:" id="Description" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
 </div>
+</section>
 
 <!-- Footer -->
     <footer class="footer">

@@ -39,6 +39,30 @@ div{
 .no-padding{
     padding: 0;
 }
+.top-border{
+    
+    border-top: .5px solid var(--red);
+}
+.click-me{
+    color: var(--red);
+}
+.click-me:hover{
+    color: var(--green);
+}
+
+.clicky{
+    color: var(--white);
+}
+.clicky:hover{
+    color: var(--green);
+}
+
+.columns{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
 .display-flex{
     display: flex !important;
 }
@@ -114,7 +138,7 @@ div{
     justify-content: center;
     align-content: center;
     text-align: center;
-    border-top: .5px solid var(--red);
+    min-height: 80vh;
 }
 h2{
     padding: 20px 0;
