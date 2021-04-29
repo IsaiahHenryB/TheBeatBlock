@@ -39,6 +39,9 @@ div{
 .no-padding{
     padding: 0;
 }
+.display-flex{
+    display: flex !important;
+}
 /*Start Mobile Styles */
 
 /* Header Styles */
@@ -53,6 +56,7 @@ div{
     align-items: center;
     box-shadow: 10px 5px 10px 5px var(--black);
 }
+
 .nav img{
     height: 50px;
     margin: 0 15px;
@@ -64,6 +68,20 @@ div{
 }
 .nav a:hover{
     background-color: var(--red);
+}
+.navLinks{
+    display: none;
+    flex-flow: column nowrap;
+}
+.navtop{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+}
+.burger:hover{
+    color: var(--red);
 }
 .header{
     width: 100vw;
@@ -222,10 +240,13 @@ textarea{
     text-align: center;
     background-color: var(--cred);
 }
+.footerdiv a:hover{
+    color: var(--red);
+}
 .footerdiv:nth-of-type(even){
     background-color: var(--clear);
 }
-.footer :nth-child(2){
+.footerdiv:nth-of-type(2){
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -259,6 +280,10 @@ textarea{
         height: 3.8vw;
         margin: 0 20px;
     }
+    .nav div{
+        display: flex;
+        flex-flow: row nowrap;
+    }
     .nav a{
         width: 200px;
         height: 4vw;
@@ -266,6 +291,16 @@ textarea{
         flex-flow: column nowrap;
         justify-content: center;
         text-align: center;
+    }
+    .navtop{
+        width: 30vw;
+    }
+    .navLinks{
+        display: flex;
+        flex-flow: row nowrap;
+    }
+    .burger{
+        display: none !important;
     }
     .headerimage{
         background-image: url("../../public/images/beatblock2.png");
@@ -282,7 +317,6 @@ textarea{
         width: 45vw;
     }
     .content-item:nth-of-type(even){
-        
         flex-flow: row-reverse nowrap;
     }
     .content-item div{
