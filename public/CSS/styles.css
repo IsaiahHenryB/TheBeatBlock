@@ -27,7 +27,7 @@ i{
     color: inherit;
 }
 body{
-    background-image: url(../../public/Images/background.png);
+    background-image: url(/Images/background.png);
     background-repeat: repeat;
     background-size: 800px;
     background-attachment: fixed;
@@ -111,7 +111,7 @@ div{
     width: 100vw;
 }
 .headerimage{
-    background-image: url("../../public/Images/beatblock.png");
+    background-image: url("/Images/beatblock.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -174,6 +174,26 @@ h2{
     padding: 0;
     margin: 0;
 
+}
+/* Playlist Styles */
+.song{
+    background-color: var(--clear);
+    width: 60vw;
+    padding: 1vw;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    min-height: 30px;
+    justify-content: right;
+    margin: 10px auto;
+    box-shadow: 10px 5px 10px  1px var(--black);
+}
+.song *{
+    padding-left: 5px;
+}
+#songName :hover{
+    color: var(--red);
 }
 /* Form Styles */
 .form-container{
@@ -327,7 +347,7 @@ textarea{
         display: none !important;
     }
     .headerimage{
-        background-image: url("../../public/images/beatblock2.png");
+        background-image: url("/images/beatblock2.png");
     }
     .content-item{
         max-height: 30vw;

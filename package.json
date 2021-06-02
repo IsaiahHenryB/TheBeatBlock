@@ -1,0 +1,42 @@
+{
+  "name": "course-project",
+  "version": "1.0.0",
+  "description": "This is a log of my progress starting from Homework7.\r <!-- Homework7 -->\r ##homework7\r I added a readme.md file to my repo as Kiki suggested so I literally had to\r ```bash\r     $ touch\r ```\r up on my terminal navigaion skills.",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaiahHenryB/Course-Project.git"
+  },
+  "author": "Isaiah Henry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaiahHenryB/Course-Project/issues"
+  },
+  "engines": {
+    "node": "14.16.1"
+  },
+  "homepage": "https://github.com/IsaiahHenryB/Course-Project#readme",
+  "dependencies": {
+    "dotenv": "^8.6.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.10",
+    "mongoose-findorcreate": "^3.0.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "uuid": "^8.3.2"
+  }
+}
