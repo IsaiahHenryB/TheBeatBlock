@@ -7,19 +7,24 @@ module.exports = {
         res.render('pages/index',{user: req.user})
     },
     about: (req, res) =>{
-        res.render('pages/about')
+        res.render('pages/about',{user: req.user})
     },
     music: (req, res) =>{
-        res.render('pages/music')
+        res.render('pages/music',{user: req.user})
     },
     upload: (req, res) =>{
-        res.render('pages/submit')
+        if(req.isAuthenticated()){
+          res.render('pages/submit',{user: req.user});
+        } else {
+          res.redirect('/login')
+        }
+        
     },
     blog: (req, res) =>{
-        res.render('pages/blog')
+        res.render('pages/blog',{user: req.user})
     },
     login: (req, res) =>{
-        res.render('pages/login')
+        res.render('pages/login',{user: req.user})
     },
     login_post: (req, res) =>{
         const user = new User({
@@ -38,7 +43,7 @@ module.exports = {
           });
     },
     signup: (req, res) =>{
-        res.render('pages/signup')
+        res.render('pages/signup',{user: req.user})
     },
     signup_post: (req, res) =>{
         User.register({
@@ -58,4 +63,8 @@ module.exports = {
           }
         });
       },
+    logout: (req, res) =>{
+      req.logout();
+      res.redirect('/')
+    }
 }

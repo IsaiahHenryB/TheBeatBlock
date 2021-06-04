@@ -63,6 +63,9 @@ div{
     justify-content: space-between;
     align-items: center;
 }
+.green-text{
+    color: var(--green);
+}
 .display-flex{
     display: flex !important;
 }

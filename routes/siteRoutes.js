@@ -25,4 +25,7 @@ router.route('/signup')
 .get(siteController.signup)
 .post(siteController.signup_post)
 
+router.route('/logout')
+.get(siteController.logout)
+
 module.exports = router;
