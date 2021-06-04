@@ -23,4 +23,6 @@ I was able to create my ejs routes and troubleshoot how they function. To my kno
 I have most of the dependencies installed but I have to wait to require them until the time is right.
 
 ## Feature4
-I was able to add sign in and log out functionality. The next step is to try to add mp3s to the database to populate the music page.
+I was able to add sign in and log out functionality. The next step is to try to add mp3s to the database to populate the music page. 
+
+Upon my first deployment to heroku, I realized the home page beat block image was too large to render so I used software to reduce its file size along with the sizes of other images.
