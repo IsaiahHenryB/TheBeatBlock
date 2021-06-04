@@ -27,18 +27,18 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// app.use(session({
-//     secret: process.env.SECRET_KEY,
-//     resave: false,
-//     saveUninitialized: false,
-// }));
+app.use(session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: false,
+}));
 
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(routes)
 
-// require('./config/connection')
+require('./config/connection')
 // Adding app.listen
 app.listen(PORT, ()=>{
     console.log(`You are currently running from port${PORT}`)

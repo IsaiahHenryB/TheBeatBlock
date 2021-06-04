@@ -19,8 +19,10 @@ router.route('/blog')
 
 router.route('/login')
 .get(siteController.login)
+.post(siteController.login_post)
 
 router.route('/signup')
 .get(siteController.signup)
+.post(siteController.signup_post)
 
 module.exports = router;
