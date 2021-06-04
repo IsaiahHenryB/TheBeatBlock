@@ -21,3 +21,6 @@ Edited content
 I was able to create my ejs routes and troubleshoot how they function. To my knowledge, all the file paths are functioning properly. The next step for me is to make my forms function properly in the next feature branch.
 
 I have most of the dependencies installed but I have to wait to require them until the time is right.
+
+## Feature4
+I was able to add sign in and log out functionality. The next step is to try to add mp3s to the database to populate the music page.
