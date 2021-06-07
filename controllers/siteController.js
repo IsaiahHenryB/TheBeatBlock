@@ -1,6 +1,7 @@
 const passport = require('passport');
 const { req, res, response } = require('express');
 const User = require('../models/userSchema');
+const upload = require('../config/connection');
 
 module.exports = {
     home: (req, res) =>{
@@ -19,6 +20,10 @@ module.exports = {
           res.redirect('/login')
         }
         
+    },
+    upload_post: (req, res) =>{
+      upload.single('song'),
+      res.json({song: req.song})
     },
     blog: (req, res) =>{
         res.render('pages/blog',{user: req.user})

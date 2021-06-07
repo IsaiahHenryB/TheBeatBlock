@@ -6,15 +6,15 @@
     <h1>Upload Some Music of Your Own</h1>
 
     <div class="form-container">
-        <form action="update.html">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
             <h1>Upload A Song</h1>
             <div>
                 <label for="username">Artist: </label>
                 <input name="username" placeholder="username" type="text" value="<%= user.username %>" readonly>
             </div>
             <div>
-                <label for="Name">Song Name: </label>
-                <input name="Name" placeholder="Name" type="text">
+                <label for="title">Song Title: </label>
+                <input name="title" placeholder="title" type="text">
             </div>
             <div>
                 <label for="Genre">Genre: </label>
@@ -23,6 +23,10 @@
             <div>
                 <label for="Description">Description: </label>
                 <textarea name="Description" placeholder="Details about this song:" id="Description" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <label for="MP3 File">MP3 File: </label>
+                <input type="file" name="song" class="addfile" id="song">
             </div>
             <button type="submit">Add Song</button>
         </form>

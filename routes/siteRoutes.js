@@ -13,6 +13,7 @@ router.route('/music')
 
 router.route('/upload')
 .get(siteController.upload)
+.post(siteController.upload_post)
 
 router.route('/blog')
 .get(siteController.blog)

@@ -114,7 +114,7 @@ div{
     width: 100vw;
 }
 .headerimage{
-    background-image: url("/Images/beatblock.png");
+    background-image: url(/Images/beatblock.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;
@@ -243,14 +243,27 @@ h2{
     background-color: var(--cred);
     width: 100%;
 }
-
 .form-container input[type=submit]:hover,
 .form-container button:hover{
     background-color: var(--cgreen);
     border: 2px solid var(--green);
     color: var(--green);
 }
-
+.addfile{
+    width: auto;
+    border: 2px solid var(--red);
+    color: var(--red);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 12px 3px;
+    background-color: var(--cred);
+    width: 50vw;
+}
+.addfile:hover{
+    background-color: var(--cgreen);
+    border: 2px solid var(--green);
+    color: var(--green);
+}
 form div{
     justify-content: center;
     align-items: center;
