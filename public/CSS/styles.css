@@ -114,7 +114,10 @@ div{
     width: 100vw;
 }
 .headerimage{
+<<<<<<< HEAD
     background-image: url(/Images/beatblock.png);
+=======
+>>>>>>> main
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 100%;

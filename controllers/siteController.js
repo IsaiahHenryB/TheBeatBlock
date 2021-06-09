@@ -17,7 +17,7 @@ module.exports = {
         if(req.isAuthenticated()){
           res.render('pages/submit',{user: req.user});
         } else {
-          res.redirect('/login')
+          res.redirect('/music/login')
         }
         
     },
