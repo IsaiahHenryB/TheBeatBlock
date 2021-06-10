@@ -10,25 +10,25 @@
             <h1>Upload A Song</h1>
             <div>
                 <label for="username">Artist: </label>
-                <input name="username" placeholder="username" type="text" value="<%= user.username %>" readonly>
+                <input name="username" placeholder="username" type="text" value="<%= user.username %>" readonly required>
             </div>
             <div>
                 <label for="title">Song Title: </label>
-                <input name="title" placeholder="title" type="text">
+                <input name="title" placeholder="title" type="text" required>
             </div>
             <div>
                 <label for="Genre">Genre: </label>
-                <input name="Genre" placeholder="What's Your Genre of Preference?" type="text">
+                <input name="genre" placeholder="What's Your Genre of Preference?" type="text" required>
             </div>
             <div>
                 <label for="Description">Description: </label>
-                <textarea name="Description" placeholder="Details about this song:" id="Description" cols="30" rows="10"></textarea>
+                <textarea name="description" placeholder="Details about this song:" id="Description" cols="30" rows="10"></textarea>
             </div>
             <div>
-                <label for="MP3 File">MP3 File: </label>
-                <input type="file" name="song" class="addfile" id="song">
+                <label for="file">MP3 File: </label>
+                <input type="file" name="file" class="addfile" id="song" accept=".mp3" required>
             </div>
-            <button type="submit">Add Song</button>
+            <button type="submit" value="submit">Add Song</button>
         </form>
     </div>
     </section>

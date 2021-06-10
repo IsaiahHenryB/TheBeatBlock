@@ -1,7 +1,31 @@
 const passport = require('passport');
-const { req, res, response } = require('express');
+const crypto = require('crypto');
+const multer = require('multer');
+const path = require('path')
+const GridFsStorage = require('multer-gridfs-storage');
 const User = require('../models/userSchema');
-const upload = require('../config/connection');
+const Song = require('../models/songSchema');
+// Create storage engine
+const storage = new GridFsStorage({
+  url: process.env.DB_URL,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'songs'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+
+const upload = multer({ storage });
 
 module.exports = {
     home: (req, res) =>{
@@ -11,8 +35,20 @@ module.exports = {
         res.render('pages/about',{user: req.user})
     },
     music: (req, res) =>{
-        res.render('pages/music',{user: req.user})
-    },
+        Song.find({},(error, allSongs)=>{
+          if(error){
+            return error
+          } else {
+            // gfs.openDownloadStream(req.params.filename).pipe(res);
+            res.render('pages/music', {
+              user: req.user,
+              songs: allSongs,
+            })
+          }
+        });
+      },
+
+        
     upload: (req, res) =>{
         if(req.isAuthenticated()){
           res.render('pages/submit',{user: req.user});
@@ -21,10 +57,42 @@ module.exports = {
         }
         
     },
-    upload_post: (req, res) =>{
-      upload.single('song'),
-      res.json({song: req.song})
-    },
+    upload_post: [
+      upload.single('file'), (req, res, next) => {
+        console.log(req.body);
+        // check for existing songs
+        Song.findOne({title: req.body.title})
+          .then((song) => {
+            if(song) {
+              return res.status(200).json({
+                success:false,
+                message: 'Song already exists'
+              });
+            }
+
+            let newSong = new Song({
+              username: req.body.username,
+              title: req.body.title,
+              genre: req.body.genre,
+              description: req.body.description,
+              file: req.body.file,
+              fileid: req.file.id,
+              filename: req.file.filename,
+            });
+
+            newSong.save()
+              .then((song) => {
+                res.status(200).json({
+                  success: true,
+                  song
+                });
+              })
+              .catch(err => res.status(500).json(err));
+          })
+          .catch(err => res.status(500).json(err));
+          res.redirect('/music');
+      }
+    ],
     blog: (req, res) =>{
         res.render('pages/blog',{user: req.user})
     },
@@ -51,6 +119,7 @@ module.exports = {
         res.render('pages/signup',{user: req.user})
     },
     signup_post: (req, res) =>{
+      console.log(req.body)
         User.register({
             username: req.body.username,
             genre: req.body.genre,

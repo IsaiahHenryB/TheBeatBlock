@@ -23,6 +23,15 @@
             <p>By Forte Boss</p>
         </div>
     </a>
+    <% songs.forEach(song => { %>
+        <a class="songName" href="<%= song.filename %>">
+            <div class="song" id="song2">
+                <i class="fas fa-play fa-lg"></i>
+                <h3><%= song.title %></h3>
+                <p><%= song.username %></p>
+            </div>
+        </a>
+    <% }) %>
     <a href="/upload" class="click-me">Add Your Own Music!</a>
     </section>
 <!-- Footer -->

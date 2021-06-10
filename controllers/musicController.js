@@ -1,6 +1,10 @@
 const passport = require('passport');
-const { req, res, response } = require('express');
+const crypto = require('crypto');
+const multer = require('multer');
+const path = require('path')
+const GridFsStorage = require('multer-gridfs-storage');
 const User = require('../models/userSchema');
+const Song = require('../models/songSchema');
 
 module.exports = {
 login: (req, res) =>{
