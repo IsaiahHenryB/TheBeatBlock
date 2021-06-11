@@ -23,6 +23,15 @@
             <p>By Forte Boss</p>
         </div>
     </a>
+    <% for( let i = 0; i < songs.length; i++ ) { %>
+        <a class="songName" href="/music/<%= songs[i].filename %>" name="<%= songs[i].filename %>">
+            <div class="song" id="song2">
+                <i class="fas fa-play fa-lg"></i>
+                <h3><%= songs[i].title %></h3>
+                <p><%= songs[i].username %></p>
+            </div>
+        </a>
+        <% } %>
     <a href="/upload" class="click-me">Add Your Own Music!</a>
     </section>
 <!-- Footer -->

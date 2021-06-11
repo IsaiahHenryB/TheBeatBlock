@@ -1,8 +1,46 @@
 const passport = require('passport');
 const { req, res, response } = require('express');
 const User = require('../models/userSchema');
-const upload = require('../config/connection');
+const crypto = require('crypto');
+const multer = require('multer');
+const path = require('path')
+const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const mongoose = require('mongoose')
+const Song = require('../models/songSchema');
+const connect = require('../config/connection');
 
+const mongoURI = process.env.DB_URL;
+
+const conn = mongoose.createConnection(mongoURI)
+
+let gfs
+
+conn.once('open', ()=>{
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('songs')
+})
+// Create storage engine
+const storage = new GridFsStorage({
+  url: process.env.DB_URL,
+  file: (req, file) => {
+    return new Promise((resolve, reject) => {
+      crypto.randomBytes(16, (err, buf) => {
+        if (err) {
+          return reject(err);
+        }
+        const filename = buf.toString('hex') + path.extname(file.originalname);
+        const fileInfo = {
+          filename: filename,
+          bucketName: 'songs'
+        };
+        resolve(fileInfo);
+      });
+    });
+  }
+});
+
+const upload = multer({ storage });
 module.exports = {
     home: (req, res) =>{
         res.render('pages/index',{user: req.user})
@@ -11,8 +49,13 @@ module.exports = {
         res.render('pages/about',{user: req.user})
     },
     music: (req, res) =>{
-        res.render('pages/music',{user: req.user})
-    },
+      Song.find({},(error, allsongs) =>{
+        res.render('pages/music', {
+          user: req.user,
+          songs: allsongs,
+        })
+      })
+  },
     upload: (req, res) =>{
         if(req.isAuthenticated()){
           res.render('pages/submit',{user: req.user});
