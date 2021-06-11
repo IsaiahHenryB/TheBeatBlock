@@ -12,19 +12,18 @@ const connect = mongoose.createConnection(url, {
 let gfs;
 
 // Initialize stream
-
 connect.once('open', () => {
   gfs = new mongoose.mongo.GridFSBucket(connect.db, {
-    bucketName: "songs",
-    
+    bucketName: "songs"
   });
-})
+});
 
-mongoose.connect(process.env.DB_URL,{ 
-    useNewUrlParser: true,
-    useUnifiedTopology:  true,
-    useFindAndModify: false,
-    useCreateIndex: true} , (error) =>{
+mongoose.connect(process.env.DB_URL,{
+  useNewUrlParser: true,
+  useUnifiedTopology:  true,
+  useFindAndModify: false,
+  useCreateIndex: true
+}, (error) =>{
     if(error){
         console.log('There was an error')
     } else {
@@ -32,4 +31,4 @@ mongoose.connect(process.env.DB_URL,{
     }
 });
 
-  module.exports = connect;
+  // module.exports = upload;
