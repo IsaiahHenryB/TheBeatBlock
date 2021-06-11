@@ -10,8 +10,7 @@ const passport = require('passport');
 
 // Create app
 const app = express();
-let gfs
-app.locals.gfs = gfs
+
 // // New middleware for data upload
 // app.use(bodyParser.json());
 
@@ -19,7 +18,6 @@ app.locals.gfs = gfs
 const path = require('path')
 // Require routes
 const routes = require('./routes/indexRoutes');
-const { Mongoose } = require('mongoose');
 // const conn = require('./config/connection');
 // Create PORT
 const PORT = process.env.PORT || 3000;
