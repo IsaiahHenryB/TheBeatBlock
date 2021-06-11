@@ -5,6 +5,9 @@ const songSchema = new Schema({
     username: {
       type: String,
     },
+    collaborators: {
+        type: String,
+    },
     title: {
       type: String,
     },

@@ -3,36 +3,27 @@
     <section class="content columns">
     <h1>Music</h1>
     <h2>Check Out Some Cool Music From Our Members</h2>
+
+    <a href="/upload" class="click-me"><h3>Add Your Own Music!</h3></a>
         <audio controls class="locked-audio" id="audioPlayer">
             <source src="" type="audio/mpeg">
         </audio>
 
-
-    <a class="songName" href="/music/Hopeful.mp3">
-        <div class="song" id="song1">
-            <i class="fas fa-play fa-lg"></i>
-            <h3>Hopeful</h3>
-            <p>By Forte Boss</p>
-        </div>
-    </a>
-
-    <a class="songName" href="/music/JoyToTheWorld.mp3">
-        <div class="song" id="song2">
-            <i class="fas fa-play fa-lg"></i>
-            <h3>Joy To The World</h3>
-            <p>By Forte Boss</p>
-        </div>
-    </a>
-    <% for( let i = 0; i < songs.length; i++ ) { %>
-        <a class="songName" href="/<%= songs[i].filename %>" name="<%= songs[i].filename %>">
+        <% songs.forEach(song => { %>
+        
+        <a class="songName" href="/music/<%= song.filename %>" name="<%= song.filename %>">
             <div class="song" id="song2">
                 <i class="fas fa-play fa-lg"></i>
-                <h3><%= songs[i].title %></h3>
-                <p><%= songs[i].username %></p>
+                <h3><%= song.title %></h3>
+                <p> ARTIST: <%= song.username %><% if (song.collaborators.length === 0) { %><% } else { %> feat.<%= song.collaborators %><% } %>
+                </p>
+                <p> GENRE: <%= song.genre %></p>
+                <p> DESCRIPTION: <%= song.description %></p>
             </div>
         </a>
-        <% } %>
-    <a href="/upload" class="click-me">Add Your Own Music!</a>
+        
+        <% }) %>
+    
     </section>
 <!-- Footer -->
 <%- include('../partials/footer') -%>
