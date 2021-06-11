@@ -6,7 +6,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
-require('./config/connection')
+
 
 // Create app
 const app = express();
@@ -46,7 +46,7 @@ app.use(passport.session())
 
 app.use(routes)
 
-
+require('./config/connection')
 // Adding app.listen
 app.listen(PORT, ()=>{
     console.log(`You are currently running from port${PORT}`)
