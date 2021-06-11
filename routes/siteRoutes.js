@@ -11,8 +11,6 @@ router.route('/about')
 router.route('/music')
 .get(siteController.music)
 
-router.route('/:filename')
-.get(siteController.music_player)
 router.route('/upload')
 .get(siteController.upload)
 .post(siteController.upload_post)

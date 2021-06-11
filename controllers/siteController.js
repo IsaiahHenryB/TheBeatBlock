@@ -7,12 +7,6 @@ const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose')
 const User = require('../models/userSchema');
-const crypto = require('crypto');
-const multer = require('multer');
-const path = require('path')
-const GridFsStorage = require('multer-gridfs-storage');
-const Grid = require('gridfs-stream');
-const mongoose = require('mongoose')
 const Song = require('../models/songSchema');
 const connect = require('../config/connection');
 
@@ -91,6 +85,7 @@ module.exports = {
             let newSong = new Song({
               username: req.body.username,
               title: req.body.title,
+              collaborators: req.body.collaborators,
               genre: req.body.genre,
               description: req.body.description,
               file: req.body.file,
