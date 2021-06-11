@@ -5,5 +5,4 @@ const musicController = require('../controllers/musicController');
 router.route('/login')
 .get(musicController.login)
 .post(musicController.login_post)
-
 module.exports = router;

@@ -1,10 +1,25 @@
 const passport = require('passport');
+const express = require('express')
 const crypto = require('crypto');
 const multer = require('multer');
 const path = require('path')
 const GridFsStorage = require('multer-gridfs-storage');
+const Grid = require('gridfs-stream');
+const mongoose = require('mongoose')
 const User = require('../models/userSchema');
 const Song = require('../models/songSchema');
+const connect = require('../config/connection');
+
+const mongoURI = process.env.DB_URL;
+
+const conn = mongoose.createConnection(mongoURI)
+
+let gfs
+
+conn.once('open', ()=>{
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('songs')
+})
 // Create storage engine
 const storage = new GridFsStorage({
   url: process.env.DB_URL,
@@ -35,19 +50,22 @@ module.exports = {
         res.render('pages/about',{user: req.user})
     },
     music: (req, res) =>{
-        Song.find({},(error, allSongs)=>{
-          if(error){
-            return error
-          } else {
-            // gfs.openDownloadStream(req.params.filename).pipe(res);
+          Song.find({},(error, allsongs) =>{
             res.render('pages/music', {
               user: req.user,
-              songs: allSongs,
+              songs: allsongs,
             })
-          }
-        });
+          })
+        
       },
-
+    music_player: (req, res) => {
+      const readstream = gfs.createReadStream({filename: req.params.filename})
+      readstream.on('error', function (error) {
+           res.sendStatus(500)
+      })
+      res.type('audio/mpeg')
+      readstream.pipe(res)
+   },
         
     upload: (req, res) =>{
         if(req.isAuthenticated()){

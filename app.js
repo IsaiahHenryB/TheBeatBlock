@@ -6,11 +6,12 @@ const express = require('express');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
-
+require('./config/connection')
 
 // Create app
 const app = express();
-
+let gfs
+app.locals.gfs = gfs
 // // New middleware for data upload
 // app.use(bodyParser.json());
 
@@ -45,7 +46,7 @@ app.use(passport.session())
 
 app.use(routes)
 
-require('./config/connection')
+
 // Adding app.listen
 app.listen(PORT, ()=>{
     console.log(`You are currently running from port${PORT}`)

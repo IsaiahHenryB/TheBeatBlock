@@ -15,7 +15,8 @@ let gfs;
 
 connect.once('open', () => {
   gfs = new mongoose.mongo.GridFSBucket(connect.db, {
-    bucketName: "songs"
+    bucketName: "songs",
+    
   });
 })
 
@@ -31,4 +32,4 @@ mongoose.connect(process.env.DB_URL,{
     }
 });
 
-  // module.exports = upload;
+  module.exports = connect;
