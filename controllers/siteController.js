@@ -12,7 +12,12 @@ const connect = require('../config/connection');
 
 const mongoURI = process.env.DB_URL;
 
-const conn = mongoose.createConnection(mongoURI)
+const conn = mongoose.createConnection(mongoURI,{
+  useNewUrlParser: true,
+  useUnifiedTopology:  true,
+  useFindAndModify: false,
+  useCreateIndex: true
+})
 
 let gfs
 
