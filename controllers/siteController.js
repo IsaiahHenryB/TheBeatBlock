@@ -102,6 +102,7 @@ module.exports = {
         User.register({
             username: req.body.username,
             genre: req.body.genre,
+            collaborators: req.body.collaborators,
             email: req.body.email,
             occupation: req.body.occupation,
             description: req.body.description,

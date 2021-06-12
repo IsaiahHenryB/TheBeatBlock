@@ -8,6 +8,9 @@ const songSchema = new Schema({
     title: {
       type: String,
     },
+    collaborators: {
+      type: String,
+    },
     genre: {
       type: String,
     },
