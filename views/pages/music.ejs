@@ -5,13 +5,13 @@
     <h2>Check Out Some Cool Music From Our Members</h2>
 
     <a href="/upload" class="click-me"><h3>Add Your Own Music!</h3></a>
-        <audio controls class="locked-audio" id="audioPlayer">
+        <audio controls class="locked-audio" id="audioPlayer" autoplay>
             <source src="" type="audio/mpeg">
         </audio>
 
         <% songs.forEach(song => { %>
         
-        <a class="songName" href="/music/<%= song.filename %>" name="<%= song.filename %>">
+        <a class="songName" href="/music/<%= song.filename %>" name="<%= song.fileid %>">
             <div class="song" id="song2">
                 <i class="fas fa-play fa-lg"></i>
                 <h3><%= song.title %></h3>

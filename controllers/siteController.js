@@ -20,10 +20,13 @@ const conn = mongoose.createConnection(mongoURI,{
 })
 
 let gfs
-
+let gridFSBucket
 conn.once('open', ()=>{
   gfs = Grid(conn.db, mongoose.mongo);
-  gfs.collection('songs')
+  gridFSBucket = new mongoose.mongo.GridFSBucket(conn.db, {
+    bucketName: 'songs'
+  });
+  gfs.collection('songs');
 })
 // Create storage engine
 const storage = new GridFsStorage({
