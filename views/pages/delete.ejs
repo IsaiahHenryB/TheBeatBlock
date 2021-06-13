@@ -1,0 +1,12 @@
+<%- include('../partials/deletehead') -%> 
+<%- include('../partials/nav') -%> 
+<section class="content columns">
+    <h1>Deleting File</h1>
+    </section>
+            <div>
+                <form name="delete" action="/<%= user.username %>/delete/<%= songid %>?_method=DELETE" method="POST">
+            </form>
+            </div>
+
+<!-- Footer -->
+<%- include('../partials/footer') -%>

@@ -3,27 +3,27 @@
 
     <section class="content">
 
-    <h1>Upload Some Music of Your Own</h1>
+    <h1>Update This Song</h1>
 
     <div class="form-container">
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <h1>Upload A Song</h1>
+        <form action="/<%= user.username %>/update/<%= song._id %>?_method=PUT" method="POST">
+            <h1>Change It Up</h1>
             <div>
                 <label for="username">Artist: </label>
                 <input name="username" placeholder="username" type="text" value="<%= user.username %>" readonly required>
             </div>
             <div>
                 <label for="collaborators">Featuring (optional): </label>
-                <input name="collaborators" placeholder="Collaborators" type="text" >
+                <input name="collaborators" placeholder="Collaborators" type="text" value="<%= song.collaborators %>">
             </div>
             <div>
                 <label for="title">Song Title: </label>
-                <input name="title" placeholder="Title" type="text" required>
+                <input name="title" placeholder="Title" type="text" value="<%= song.title %>" required>
             </div>
             <div>
                 <label for="Genre">Genre: </label>
                 <select name="genre" id="genre" required>
-                    <option value="" disabled selected>Select Genre</option>
+                    <option value="<%= song.genre %>" selected><%= song.genre %></option>
                     <option value="Blues">Blues</option>
                     <option value="Classical">Classical</option>
                     <option value="Country">Country</option>
@@ -41,13 +41,9 @@
             </div>
             <div>
                 <label for="Description">Description: </label>
-                <textarea name="description" placeholder="Details about this song:" id="Description" cols="30" rows="10"></textarea>
+                <textarea name="description" placeholder="Details about this song:" id="Description" cols="30" rows="10"><%= song.description %></textarea>
             </div>
-            <div>
-                <label for="file">MP3 File: </label>
-                <input type="file" name="file" class="addfile" id="mp3song" accept=".mp3" onchange="return fileValidation()" required>
-            </div>
-            <button type="submit" value="submit">Add Song</button>
+            <button type="submit" value="submit">Update</button>
         </form>
     </div>
     </section>

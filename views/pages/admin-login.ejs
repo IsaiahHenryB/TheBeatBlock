@@ -1,0 +1,23 @@
+<%- include('../partials/head') -%> 
+<%- include('../partials/nav') -%> 
+    <section class="content">
+<!-- Form Troubleshooting -->
+<div class="form-container">
+    <form method="POST" action="/login">
+        <h1>Admin Log In</h1>
+        <div>
+            <label for="Username:">Username: </label>
+            <input name="username" placeholder="Username" type="text" required/>
+        </div>
+        <div>
+            <label for="Password:">Password: </label>
+            <input name="password" placeholder="Password" type="password" required/>
+        </div>
+        
+        <button type="submit">Log In Admin</button>
+    </form>
+</div>
+</section>
+
+<!-- Footer -->
+<%- include('../partials/footer') -%> 

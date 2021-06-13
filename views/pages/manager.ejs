@@ -1,0 +1,37 @@
+<%- include('../partials/musichead') -%> 
+<%- include('../partials/nav') -%> 
+    <section class="content columns">
+    <h1>Manage Songs</h1>
+    <h2>Update Your Music Here </h2>
+
+    <a href="/upload" class="click-me"><h3>Upload More Music!</h3></a>
+        <audio controls class="locked-audio" id="audioPlayer" autoplay>
+            <source src="" type="audio/mpeg">
+        </audio>
+
+        <% if (songs.length === 0) { %>
+         <h3>It's a little empty in here, but that's okay! You can upload music by clicking upload more music.</h3>
+        <% } else { %>
+        <% songs.forEach(song => { %>
+            <div class="song">
+            <div>
+                <a class="songName" href="/music/<%= song.filename %>" name="<%= song.fileid %>"><i class="fas fa-play fa-lg"></i></a>
+                <h4><%= song.title %></h4>
+            </div>
+            <div>
+                <a href="/<%= user.username %>/update/<%= song._id %>"><button>Update Song Details</button>
+                </a>
+            </div>
+            <div>
+                <form action="/<%= user.username %>/update/<%= song.fileid %>?_method=DELETE" method="POST">
+                    <input type="hidden" name="songid" value="<%= song._id %>">
+                <button type="submit">Delete Song</button>
+            </form>
+            </div>
+        </div>
+        <% }) %>
+        <% } %>
+    
+    </section>
+<!-- Footer -->
+<%- include('../partials/footer') -%>

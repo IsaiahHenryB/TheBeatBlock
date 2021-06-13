@@ -118,7 +118,7 @@ module.exports = {
         
           req.login(user, (error) => {
             if (error) {
-              return error;
+             res.redirect('/login')
             } else {
               passport.authenticate('local')(req, res, () => {
                 res.redirect('/');
