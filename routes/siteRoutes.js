@@ -11,6 +11,9 @@ router.route('/about')
 router.route('/music')
 .get(siteController.music)
 
+router.route('/songs/:genre')
+.get(siteController.genre_get)
+
 router.route('/upload')
 .get(siteController.upload)
 .post(siteController.upload_post)

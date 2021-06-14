@@ -102,11 +102,22 @@ module.exports = {
             .catch(err => res.status(500).json(err));
         })
         .catch(err => res.status(500).json(err));
-        res.redirect('/music');
+        res.redirect('/:user/songs');
     }],
     blog: (req, res) =>{
         res.render('pages/blog',{user: req.user})
     },
+    genre_get: (req, res) =>{
+      const genre = req.params.genre;
+
+      Song.find({genre: genre},(error, allsongs) =>{
+        res.render('pages/musicgenre', {
+          user: req.user,
+          songs: allsongs,
+          genre: genre,
+        })
+    })
+  },
     login: (req, res) =>{
         res.render('pages/login',{user: req.user})
     },

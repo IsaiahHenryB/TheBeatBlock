@@ -1,10 +1,10 @@
 <%- include('../partials/musichead') -%> 
 <%- include('../partials/nav') -%> 
     <section class="content columns">
-    <h1>Music</h1>
-    <h2>Check Out Some Cool Music From Our Members</h2>
+    <h1><span class="green-text"><%= genre %></span> Music</h1>
+    <h2>All The <span class="green-text"><%= genre %></span> Music From Our Members</h2>
 
-    <a href="/upload" class="click-me"><h3>Add Your Own Music!</h3></a>
+    <a href="/upload" class="click-me"><h3>Add Some <%= genre %>  Music!</h3></a>
         <audio controls class="locked-audio" id="audioPlayer" autoplay>
             <source src="" type="audio/mpeg">
         </audio>
@@ -14,7 +14,7 @@
             <div>
                 <label for="Genre">Search By Genre: </label>
                 <select name="genre" id="genre" required>
-                <option value="" disabled selected>Select Genre</option>
+                <option value="<%= genre %> " selected><%= genre %></option>
                 <option value="Blues">Blues</option>
                 <option value="Classical">Classical</option>
                 <option value="Country">Country</option>
@@ -28,12 +28,12 @@
                 <option value="Rock">Rock</option>
                 <option value="Other">Other</option>
             </select>
-            <button type="submit">Search</button>
+            <button type="submit"><i class="fas fa-search fa-lg"></i></button>
         </div>
     </div>
         </form>
         <% if (songs.length === 0) { %>
-         <h3>There are currently no songs. But don't worry! You can add your own music by clicking Add Your Own Music</h3>
+         <h3>There are currently no songs of this genre on this site. But don't worry! You can add your own music by clicking Add Your Own Music</h3>
         <% } else { %>
         <% songs.forEach(song => { %>
         
@@ -45,7 +45,7 @@
                 <h3><%= song.title %></h3>
                 <p> ARTIST: <%= song.username %><% if (song.collaborators.length === 0) { %><% } else { %> feat.<%= song.collaborators %><% } %>
                 </p>
-                <p> GENRE: <%= song.genre %></p>
+                <p> GENRE: <span class="green-text"><%= song.genre %></span></p>
                 <p> DESCRIPTION: <%= song.description %></p>
             </div>
         

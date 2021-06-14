@@ -2,7 +2,7 @@
 <%- include('../partials/nav') -%> 
     <section class="content columns">
     <h1>Manage Songs</h1>
-    <h2>Update Your Music Here </h2>
+    <h2><span class="green-text"><%= user.username %></span>, You Can Update Your Music Here </h2>
 
     <a href="/upload" class="click-me"><h3>Upload More Music!</h3></a>
         <audio controls class="locked-audio" id="audioPlayer" autoplay>
@@ -15,7 +15,7 @@
         <% songs.forEach(song => { %>
             <div class="song">
             <div>
-                <a class="songName" href="/music/<%= song.filename %>" name="<%= song.fileid %>"><i class="fas fa-play fa-lg"></i></a>
+                <a class="songName" href="/music/<%= song.filename %>" name="<%= song.fileid %>"><i class="fas fa-play fa-lg"></i></a><a onClick="togglePlay()" style="cursor: pointer;"><i class="fas fa-stop fa-lg"></i></a>
                 <h4><%= song.title %></h4>
             </div>
             <div>

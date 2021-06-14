@@ -25,4 +25,11 @@ fileValidation = () => {
         fileInput.value = '';
         return false;
     }
+};
+// adding a Url generator for search bar
+
+urlCreate = () =>{
+    let action_src = "/songs/" + document.getElementsByName("genre")[0].value;
+    let your_form = document.getElementById('genre');
+    your_form.action = action_src ;
 }
