@@ -10,15 +10,15 @@
             <h1>Change It Up</h1>
             <div>
                 <label for="username">Artist: </label>
-                <input name="username" placeholder="username" type="text" value="<%= user.username %>" readonly required>
+                <input autocomplete="off" name="username" placeholder="username" type="text" value="<%= user.username %>" readonly required>
             </div>
             <div>
                 <label for="collaborators">Featuring (optional): </label>
-                <input name="collaborators" placeholder="Collaborators" type="text" value="<%= song.collaborators %>">
+                <input autocomplete="off" name="collaborators" placeholder="Collaborators" type="text" value="<%= song.collaborators %>">
             </div>
             <div>
                 <label for="title">Song Title: </label>
-                <input name="title" placeholder="Title" type="text" value="<%= song.title %>" required>
+                <input autocomplete="off" name="title" placeholder="Title" type="text" value="<%= song.title %>" required>
             </div>
             <div>
                 <label for="Genre">Genre: </label>

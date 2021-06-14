@@ -72,7 +72,7 @@ module.exports = {
     upload_post: [ upload.single('file'), (req, res, next) => {
       console.log(req.body);
       // check for existing songs
-      Song.findOne({title: req.body.title})
+      Song.findOne({fileid: req.file.id})
         .then((song) => {
           if(song) {
             return res.status(200).json({
